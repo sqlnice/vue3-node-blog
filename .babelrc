@@ -1,0 +1,11 @@
+{
+  "plugins": [
+    [
+      "component",
+      {
+        "librayName": "element-plus",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}
