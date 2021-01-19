@@ -1,16 +1,16 @@
 <template>
   <main class="main">
     <div class="content">
-      <List></List>
+      <router-view />
     </div>
     <div class="sidebar">
       <div class="introduction">
-        <div>
-          <img src="" alt="我的照片" />
+        <div class="avtor">
+          <img src="../../../assets/avtor.jpg" alt="我的照片" />
         </div>
-        <p>谭光志</p>
+        <p>时启龙</p>
         <div class="my-link">
-          <a target="_blank" href="https://github.com/woai3c">
+          <a target="_blank" href="https://github.com/sqlnice">
             <svg
               class="octicon octicon-mark-github v-align-middle"
               height="32"
@@ -51,14 +51,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import List from '../components/List.vue';
+import { defineComponent, ref, reactive } from 'vue';
 export default defineComponent({
   name: 'homemain',
-  components: { List },
   methods: {
     toggleTag() {
       console.log('toggleTag');
+    },
+    gotdetail() {
+      this.$router.push('/index/content');
     }
   },
   data() {
@@ -67,7 +68,17 @@ export default defineComponent({
     };
   },
   setup() {
-    const sidebarData = ref([]);
+    const data: any = reactive({
+      Vue: 2,
+      webpack: 1,
+      前端: 5,
+      前端工程化: 1,
+      性能优化: 1
+    });
+    const sidebarData = Object.keys(data).map(key => ({
+      tag: key,
+      nums: data[key]
+    }));
     return { sidebarData };
   }
 });
@@ -79,7 +90,7 @@ export default defineComponent({
   justify-content: space-between;
   max-width: 1200px;
   position: relative;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 .content {
   width: 890px;
@@ -128,5 +139,11 @@ export default defineComponent({
 }
 .my-link img {
   width: 100%;
+}
+.avtor {
+  img {
+    width: 163px;
+    height: 163px;
+  }
 }
 </style>

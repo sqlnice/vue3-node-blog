@@ -1,6 +1,7 @@
 <template>
   <header class="header">
-    <ElInput class="search-input"></ElInput>
+    <router-link class="link" to="/index">首页</router-link>
+    <ElInput class="search-input" placeholder="请输入搜索内容"></ElInput>
   </header>
 </template>
 
@@ -19,10 +20,15 @@ export default defineComponent({
 .header {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   height: 60px;
-  padding: 0 20px;
+  padding: 0 100px;
   background-color: #333;
+  .link {
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+  }
   .search-input {
     width: 300px;
   }

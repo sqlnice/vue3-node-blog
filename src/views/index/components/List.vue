@@ -1,13 +1,12 @@
 <template>
-  <div class="lsit">
+  <div class="list">
     <ul @click="gotoContent">
       <li v-for="(item, index) in articlesData" :key="index" class="content-li">
         <p class="p-title" :data-index="index">{{ item.title }}</p>
         <p class="date">{{ item.date }}</p>
       </li>
     </ul>
-    <div class="block">
-      <span class="demonstration">页数较少时的效果</span>
+    <div class="pagination">
       <el-pagination layout="prev, pager, next" :total="50"> </el-pagination>
     </div>
   </div>
@@ -31,7 +30,7 @@ export default defineComponent({
   },
   methods: {
     gotoContent() {
-      this.$router.push('/content');
+      this.$router.push('/index/detail');
     }
   }
 });
@@ -62,6 +61,10 @@ export default defineComponent({
   margin-bottom: 20px;
 }
 .page {
+  margin-top: 20px;
+}
+.pagination {
+  float: right;
   margin-top: 20px;
 }
 </style>

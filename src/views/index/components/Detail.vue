@@ -1,9 +1,6 @@
 <template>
   <div class="view-content">
     <div class="content">
-      <div class="back" @click="back">
-        <Icon type="ios-arrow-back" style="font-size: 30px" />返回
-      </div>
       <p class="title">{{ articleData.title }}</p>
       <div class="info">
         时间：{{ articleData.date }}
@@ -14,25 +11,6 @@
       </div>
       <VueMarkdown class="markdown" :source="articleData.content" />
     </div>
-    <!-- <div class="div-comment">
-            <p class="p-comment">评论</p>
-            <div class="comment" v-for="(item, index) in articleData.comments" :key="index">
-                <p class="comment-title">
-                    {{ item.location }} 用户（{{ item.user }}）
-                    <span class="span-time">{{ item.time }}</span>
-                </p>
-                <div>
-                    <VueMarkdown class="markdown" :source="item.comment"/>
-                </div>
-            </div>
-            <div class="div-reply">
-                <p class="p-reply">请友善评论</p>
-                <textarea class="ivu-input" v-model="comment" style="resize: none; height: 140px" />
-                <div class="div-btn">
-                    <Button @click="reply">回复</Button>
-                </div>
-            </div>
-        </div> -->
   </div>
 </template>
 
@@ -64,4 +42,11 @@ export default defineComponent({
 });
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.view-content {
+  border: 1px solid #dedede;
+  background: #fff;
+  padding: 20px;
+  margin-bottom: -1px;
+}
+</style>
